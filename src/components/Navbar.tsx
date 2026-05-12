@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "../lib/utils"
-import { Menu, X, ChevronDown, Bot, Inbox, Zap, BookOpen, BarChart3, Headphones, ShoppingCart, Building2, Rocket, Workflow, Send } from "lucide-react"
+import { Menu, X, ChevronDown, Bot, Inbox, Zap, BookOpen, BarChart3, Headphones, ShoppingCart, Building2, Rocket, Workflow, Send, Plug } from "lucide-react"
 import { Button } from "./ui/Button"
 import { EnorveLogoFull } from "./ui/Logo"
 import { goToSignup } from "../lib/constants"
@@ -15,6 +15,7 @@ const productLinks = [
     { label: "Analytics", href: "/product/analytics", icon: BarChart3, description: "See how your team is performing" },
     { label: "Protocol Engine", href: "/product/protocols", icon: Workflow, description: "Visual AI conversation workflows" },
     { label: "Campaigns", href: "/product/campaigns", icon: Send, description: "WhatsApp & Instagram outbound messaging" },
+    { label: "Integrations", href: "/integrations", icon: Plug, description: "Shopify, Slack, Jira, and 9 more" },
 ]
 
 const solutionLinks = [
