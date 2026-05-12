@@ -7,7 +7,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const phaseColors = {
     cyan: {
@@ -127,7 +127,6 @@ const differentiators = [
 ]
 
 export function Protocols() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "Protocol Engine - Visual AI Workflow Builder",
         description: "Design, test, and deploy AI conversation protocols with a visual builder. Adversarial simulation, protocol tools, and real-time observability built in."
@@ -158,8 +157,8 @@ export function Protocols() {
                             Define exactly how AI handles refunds, complaints, and edge cases — then prove it works before going live.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                Start free trial
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -518,8 +517,8 @@ export function Protocols() {
                         Protocol Engine gives you the confidence to let AI handle real customer conversations — because you've already tested every edge case.
                     </p>
                     <div className="flex flex-wrap gap-4 justify-center">
-                        <Button variant="primary" size="lg" onClick={openWaitlist}>
-                            Join the waitlist
+                        <Button variant="primary" size="lg" onClick={goToSignup}>
+                            Start free trial
                             <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                         <Link to="/contact-sales">

@@ -6,7 +6,7 @@ import { homeV2 } from "../../content/home.v2"
  * Simple implementation; can absorb dropdowns later.
  */
 export function V2Nav() {
-    const { brand, links, designPartners, talkToSales, login, cta } = homeV2.nav
+    const { brand, links, talkToSales, login, cta } = homeV2.nav
 
     return (
         <header
@@ -65,19 +65,8 @@ export function V2Nav() {
                     ))}
                 </nav>
 
-                {/* Right: design partners, login, primary CTA */}
+                {/* Right: talk-to-sales, login, primary CTA */}
                 <div className="hidden md:flex items-center" style={{ gap: 20 }}>
-                    <a
-                        href={designPartners.href}
-                        style={{
-                            color: "var(--brand-primary-soft)",
-                            fontSize: 14,
-                            fontWeight: 600,
-                            textDecoration: "none",
-                        }}
-                    >
-                        {designPartners.label}
-                    </a>
                     <a
                         href={talkToSales.href}
                         style={{

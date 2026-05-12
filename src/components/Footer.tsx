@@ -39,10 +39,17 @@ const footerLinks = {
         links: [
             { label: "Security", href: "/security" },
             { label: "AI Transparency", href: "/ai-transparency" },
+            { label: "Contact Sales", href: "/contact-sales" },
+        ]
+    },
+    legal: {
+        title: "Legal",
+        links: [
             { label: "Privacy Policy", href: "/privacy-policy" },
             { label: "Terms of Service", href: "/terms-of-service" },
-            { label: "Design Partners", href: "/design-partners" },
-            { label: "Contact Sales", href: "/contact-sales" },
+            { label: "Cookie Policy", href: "/cookie-policy" },
+            { label: "DPA", href: "/dpa" },
+            { label: "Subprocessors", href: "/subprocessors" },
         ]
     }
 }
@@ -52,7 +59,7 @@ export function Footer() {
         <footer className="bg-black border-t border-white/5 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-12 justify-items-center lg:justify-items-start">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-12 justify-items-center lg:justify-items-start">
                     {/* Logo & Description */}
                     <div className="col-span-2 md:col-span-3 lg:col-span-1">
                         <Link to="/" className="flex items-center mb-4">
@@ -116,6 +123,20 @@ export function Footer() {
                         <h3 className="text-sm font-semibold text-white mb-4">{footerLinks.company.title}</h3>
                         <ul className="space-y-3">
                             {footerLinks.company.links.map((link) => (
+                                <li key={link.href}>
+                                    <Link to={link.href} className="text-sm text-gray-400 hover:text-white transition-colors">
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Legal Links */}
+                    <div>
+                        <h3 className="text-sm font-semibold text-white mb-4">{footerLinks.legal.title}</h3>
+                        <ul className="space-y-3">
+                            {footerLinks.legal.links.map((link) => (
                                 <li key={link.href}>
                                     <Link to={link.href} className="text-sm text-gray-400 hover:text-white transition-colors">
                                         {link.label}

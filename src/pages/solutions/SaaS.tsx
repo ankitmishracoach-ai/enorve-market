@@ -8,7 +8,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const painPoints = [
     { icon: MessageSquare, text: "Long, complex conversations", color: "#1FA86F" },
@@ -86,7 +86,6 @@ const enterpriseFeatures = [
 ]
 
 export function SaaS() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "SaaS Companies - Technical Support at Scale",
         description: "Technical support software for SaaS companies. Scale customer success with AI, knowledge bases, and integrations built for fast-growing products."
@@ -116,8 +115,8 @@ export function SaaS() {
                             Support users across trials, onboarding, and production. AI that understands technical conversations and knowledge that stays fresh.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -604,11 +603,11 @@ export function SaaS() {
                             Build scalable SaaS support
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                            Join the waitlist and see how AI can transform your technical support.
+                            Start free trial and see how AI can transform your technical support.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">

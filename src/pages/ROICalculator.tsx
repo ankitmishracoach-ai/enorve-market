@@ -9,11 +9,10 @@ import { CostBreakdownChart } from "../components/roi/CostBreakdownChart"
 import { ProjectionChart } from "../components/roi/ProjectionChart"
 import { generateROIPdf } from "../utils/roiPdfExport"
 import { usePageTitle } from "../hooks/usePageTitle"
-import { useWaitlist } from "../hooks/useWaitlist"
+import { goToSignup } from "../lib/constants"
 
 export function ROICalculator() {
     const { inputs, setInput, results } = useROICalculator()
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "AI Support ROI Calculator — Estimate Your Savings",
         description: "Calculate how much you can save by automating customer support. Enter your team size, salary, and volume to see projected ROI."
@@ -56,10 +55,10 @@ export function ROICalculator() {
                             Download Report
                         </Button>
                         <button
-                            onClick={openWaitlist}
+                            onClick={goToSignup}
                             className="group flex items-center gap-2 text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                         >
-                            Get early access
+                            Start free trial
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                         </button>
                     </div>

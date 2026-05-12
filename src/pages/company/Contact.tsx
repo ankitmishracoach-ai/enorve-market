@@ -7,10 +7,18 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
-const SUPABASE_URL = "https://uggsfinugqzjfroxzpbo.supabase.co"
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVnZ3NmaW51Z3F6amZyb3h6cGJvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE5MjUwMzYsImV4cCI6MjA3NzUwMTAzNn0.p5IFNxPI2rbbQ40BZvM9B40JxDFyzQ2v4j6YTw20m_M"
+// Supabase URL + anon key are public-by-design (RLS gates access), but live in
+// env vars so the values can be rotated without a code change. Build will warn
+// loudly if VITE_SUPABASE_URL is missing.
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL as string
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+    // eslint-disable-next-line no-console
+    console.warn("[Contact] Missing VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY — contact form will fail.")
+}
 
 const helpTopics = [
     {
@@ -56,7 +64,6 @@ const volumeOptions = ["< 1,000", "1,000 - 10,000", "10,000 - 50,000", "50,000+"
 const lookingForOptions = ["Product Demo", "Pricing Discussion", "Enterprise Requirements", "Other"]
 
 export function ContactSales() {
-    const { openWaitlist } = useWaitlist()
     const [formData, setFormData] = useState({
         name: "", email: "", company: "",
         team_size: "", monthly_volume: "", looking_for: "", message: ""
@@ -303,8 +310,8 @@ export function ContactSales() {
                             </div>
                             <p className="text-sm text-gray-400">
                                 Just getting started?{" "}
-                                <button onClick={openWaitlist} className="text-violet-400 hover:underline cursor-pointer">
-                                    Join the waitlist
+                                <button onClick={goToSignup} className="text-violet-400 hover:underline cursor-pointer">
+                                    Start free trial
                                 </button>{" "}
                                 — no sales call required.
                             </p>
@@ -373,10 +380,10 @@ export function ContactSales() {
                     className="p-8 rounded-[24px] bg-[#0C0E12] border border-white/5"
                 >
                     <h3 className="text-lg font-medium text-white mb-2">Prefer to try it yourself?</h3>
-                    <p className="text-gray-400 mb-6">Join the waitlist — no sales call required.</p>
+                    <p className="text-gray-400 mb-6">Start free trial — no sales call required.</p>
                     <div className="flex flex-wrap gap-4">
-                        <Button variant="primary" onClick={openWaitlist}>
-                            Join the waitlist
+                        <Button variant="primary" onClick={goToSignup}>
+                            Start free trial
                             <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
                         <Link to="/pricing">
@@ -410,7 +417,7 @@ export function ContactSales() {
                             </summary>
                             <div className="mt-4 text-gray-400 space-y-2">
                                 <p><strong className="text-white">No.</strong></p>
-                                <p>You can join the waitlist to get early access when we launch. No payment required to reserve your spot.</p>
+                                <p>You can start a 14-day free trial without talking to sales. No credit card required.</p>
                                 <p>Sales is helpful if you're evaluating Business or Enterprise plans, need custom workflows, or have security requirements.</p>
                             </div>
                         </details>
@@ -430,7 +437,7 @@ export function ContactSales() {
                                     <li>Require SSO, audit logs, or governance controls</li>
                                     <li>Want custom integrations or pricing guidance</li>
                                 </ul>
-                                <p>Smaller teams can join the waitlist without a call.</p>
+                                <p>Smaller teams can start a free trial without a call.</p>
                             </div>
                         </details>
 

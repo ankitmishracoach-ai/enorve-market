@@ -1,7 +1,6 @@
-import { useWaitlist } from "../hooks/useWaitlist"
+import { goToSignup } from "../lib/constants"
 
 export function Hero() {
-    const { openWaitlist } = useWaitlist()
 
     return (
         <section className="overflow-hidden z-10 pt-24 md:pt-32 pb-12 md:pb-20 relative">
@@ -34,19 +33,19 @@ export function Hero() {
                     {" "}— then stress-test it before a real customer ever sees it.
                 </p>
 
-                {/* Early access line */}
+                {/* Trial line */}
                 <p className="animate-fade-in-up delay-250 flex items-center justify-center gap-2 text-[13px] md:text-sm text-gray-400 mb-6 md:mb-10">
                     <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
                     </span>
-                    Early access opening soon — join the waitlist for priority access.
+                    14-day free trial. No credit card required.
                 </p>
 
                 {/* CTAs */}
                 <div className="animate-fade-in-up delay-300 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <button onClick={openWaitlist} className="bg-white text-black font-medium text-base h-12 px-8 rounded-full hover:bg-gray-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] hover:brightness-110 flex items-center justify-center w-full sm:w-auto cursor-pointer">
-                        Join Early Access
+                    <button onClick={goToSignup} className="bg-white text-black font-medium text-base h-12 px-8 rounded-full hover:bg-gray-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] hover:brightness-110 flex items-center justify-center w-full sm:w-auto cursor-pointer">
+                        Start free trial
                     </button>
                     <a href="/ai-simulator" className="group flex items-center justify-center gap-2 text-white font-medium text-base h-12 px-8 rounded-full border border-white/20 hover:bg-white/10 transition-all w-full sm:w-auto cursor-pointer">
                         Watch the demo

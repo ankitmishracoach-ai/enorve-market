@@ -158,20 +158,6 @@ export function Security() {
                     </Link>
                 </motion.section>
 
-                {/* ── Design Partners CTA ──────────────────────────────────── */}
-                <motion.section className="mb-12" {...fade} transition={{ delay: 0.33 }}>
-                    <Link
-                        to="/design-partners"
-                        className="group flex items-center justify-between rounded-xl border border-emerald-500/10 bg-emerald-500/[0.03] hover:bg-emerald-500/[0.06] transition-colors px-5 py-4"
-                    >
-                        <div>
-                            <p className="text-sm font-medium text-white">Evaluate Enorve as a design partner</p>
-                            <p className="text-xs text-gray-500 mt-0.5">5 spots. Free setup. 90 days no cost. Apply in 2 minutes.</p>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-emerald-400/60 group-hover:text-emerald-400 transition-colors" />
-                    </Link>
-                </motion.section>
-
                 {/* ── 7. Responsible Disclosure ────────────────────────────── */}
                 <motion.section {...fade} transition={{ delay: 0.35 }}>
                     <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-5 py-4">

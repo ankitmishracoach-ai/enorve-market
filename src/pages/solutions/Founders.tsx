@@ -8,7 +8,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const painPoints = [
     { icon: Bell, text: "Constant interruptions from customers", color: "#EF4444" },
@@ -79,7 +79,6 @@ const outcomes = [
 ]
 
 export function Founders() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "For Founders - AI Support Without a Team",
         description: "AI-powered customer support for solo founders and small teams. Deliver enterprise-quality support without hiring, using intelligent automation."
@@ -109,8 +108,8 @@ export function Founders() {
                             Professional customer support without hiring a team. AI handles the routine while you focus on building your product.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -585,7 +584,7 @@ export function Founders() {
                         </div>
                         <h2 className="text-3xl font-medium text-white mb-4">Built for early-stage teams</h2>
                         <p className="text-gray-400 mb-6">
-                            Join the waitlist. E-commerce and SaaS teams get priority access.
+                            Start a 14-day free trial. No credit card required.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <Link to="/pricing">
@@ -619,8 +618,8 @@ export function Founders() {
                             Free 14-day trial. No credit card required. Set up in 5 minutes.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">

@@ -258,20 +258,6 @@ export function AITransparency() {
                     </div>
                 </motion.section>
 
-                {/* ── Design Partners CTA ───────────────────────────────── */}
-                <motion.section className="mt-12" {...fade} transition={{ delay: 0.45 }}>
-                    <Link
-                        to="/design-partners"
-                        className="group flex items-center justify-between rounded-xl border border-emerald-500/10 bg-emerald-500/[0.03] hover:bg-emerald-500/[0.06] transition-colors px-5 py-4"
-                    >
-                        <div>
-                            <p className="text-sm font-medium text-white">Evaluate Enorve as a design partner</p>
-                            <p className="text-xs text-gray-500 mt-0.5">5 spots. Free setup. 90 days no cost. Apply in 2 minutes.</p>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-emerald-400/60 group-hover:text-emerald-400 transition-colors" />
-                    </Link>
-                </motion.section>
-
             </div>
         </div>
     )

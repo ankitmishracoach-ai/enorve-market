@@ -15,10 +15,9 @@ export const homeV2 = {
       { label: "Pricing", href: "/pricing" },
       { label: "Resources", href: "#" },
     ],
-    designPartners: { label: "Design Partners", href: "/design-partners" },
     talkToSales: { label: "Talk to sales", href: "/contact-sales" },
-    login: { label: "Login", href: "https://app.enorve.com/auth" },
-    cta: { label: "Get early access", href: "/design-partners" },
+    login: { label: "Login", href: "https://app.enorve.com/" },
+    cta: { label: "Start free trial", href: "https://app.enorve.com/auth" },
   },
 
   hero: {
@@ -26,9 +25,9 @@ export const homeV2 = {
     headline: "Your AI says exactly what you'd say. Every time.",
     subhead:
       "Define exactly how your AI handles refunds, complaints, and escalations — then stress-test it before a real customer ever sees it.",
-    prelaunchChip: "Early access opening soon — join the waitlist for priority access.",
-    socialProof: "Early access — design partner programme open",
-    ctaPrimary: { label: "Join Early Access", href: "/design-partners" },
+    prelaunchChip: "14-day free trial. No credit card required.",
+    socialProof: "Built for support teams who can't afford an AI that guesses.",
+    ctaPrimary: { label: "Start free trial", href: "https://app.enorve.com/auth" },
     ctaSecondary: { label: "Watch the demo", href: "/demo-video" },
   },
 
@@ -157,13 +156,13 @@ export const homeV2 = {
   },
 
   finalCta: {
-    eyebrow: "Early access",
+    eyebrow: "Ready when you are",
     headline: "Ship AI customer support — the right way.",
     subhead:
-      "Design partners get priority onboarding, pricing locked for year one, and direct access to the team building it.",
-    ctaPrimary: { label: "Join Early Access", href: "/design-partners" },
+      "Stand the AI up in minutes, write a protocol in plain English, and stress-test it before a real customer sees it.",
+    ctaPrimary: { label: "Start free trial", href: "https://app.enorve.com/auth" },
     ctaSecondary: { label: "Talk to sales", href: "/contact-sales" },
-    footNote: "No credit card required",
+    footNote: "14-day free trial. No credit card required.",
   },
 
   footer: {
@@ -204,10 +203,18 @@ export const homeV2 = {
       {
         heading: "Company",
         links: [
-          { label: "Design Partners", href: "/design-partners" },
           { label: "Contact Sales", href: "/contact-sales" },
+          { label: "Security", href: "/security" },
+          { label: "AI Transparency", href: "/ai-transparency" },
+        ],
+      },
+      {
+        heading: "Legal",
+        links: [
           { label: "Privacy Policy", href: "/privacy-policy" },
           { label: "Terms of Service", href: "/terms-of-service" },
+          { label: "Cookie Policy", href: "/cookie-policy" },
+          { label: "DPA", href: "/dpa" },
           { label: "Subprocessors", href: "/subprocessors" },
         ],
       },

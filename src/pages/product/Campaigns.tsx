@@ -7,7 +7,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const phaseColors = {
     emerald: {
@@ -114,7 +114,6 @@ const differentiators = [
 ]
 
 export function Campaigns() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "Proactive Campaigns \u2014 WhatsApp & Instagram Outbound",
         description: "Send targeted messages to customer segments on WhatsApp and Instagram. A/B test variants, respect quiet hours, and let AI handle replies with Protocol Engine."
@@ -146,8 +145,8 @@ export function Campaigns() {
                             check 80 times a day.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                Start free trial
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -388,8 +387,8 @@ export function Campaigns() {
                         or right inside the chat widget on your site. No downloads, no ads, no waiting.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <Button variant="primary" size="lg" onClick={openWaitlist}>
-                            Join the waitlist
+                        <Button variant="primary" size="lg" onClick={goToSignup}>
+                            Start free trial
                             <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                         <Link to="/contact-sales">

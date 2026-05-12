@@ -8,7 +8,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const capabilities = [
     {
@@ -138,7 +138,6 @@ const differentiators = [
 ]
 
 export function Automation() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "Automation - Workflows & Intelligent Routing",
         description: "Intelligent workflow automation for customer support. Route tickets, assign agents, and resolve common issues automatically with AI-powered workflows."
@@ -169,8 +168,8 @@ export function Automation() {
                             Build sophisticated automations without writing a single line of code.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -732,11 +731,11 @@ export function Automation() {
                             Ready to automate your support?
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                            Join the waitlist and build your first workflow in minutes.
+                            Start free trial and build your first workflow in minutes.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">

@@ -8,7 +8,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const painPoints = [
     { icon: Users, text: "Agents are overwhelmed by volume", color: "#EF4444" },
@@ -78,7 +78,6 @@ const outcomes = [
 ]
 
 export function CustomerSupport() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "AI for Customer Support Teams | Enorve",
         description: "Resolve conversations automatically with AI that follows your rules. Faster first response, less repetitive work, higher satisfaction."
@@ -108,8 +107,8 @@ export function CustomerSupport() {
                             Your agents are overwhelmed. AI Copilot helps them respond faster, while Auto-Resolution handles the easy ones automatically.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -496,11 +495,11 @@ export function CustomerSupport() {
                             See Enorve in action for support teams
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                            Join the waitlist and transform your support operations today.
+                            Start free trial and transform your support operations today.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">

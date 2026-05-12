@@ -8,7 +8,7 @@ import {
 import { Button } from "../components/ui/Button"
 import { useState } from "react"
 import { usePageTitle } from "../hooks/usePageTitle"
-import { useWaitlist } from "../hooks/useWaitlist"
+import { goToSignup } from "../lib/constants"
 import { useStructuredData, createProductSchema, createFAQPageSchema } from "../hooks/useStructuredData"
 import { ROIWidget } from "../components/roi/ROIWidget"
 
@@ -32,7 +32,7 @@ const plans = [
             { text: "Email support", included: true }
         ],
         bestFor: ["Small teams starting with autonomous operations"],
-        cta: "Join the waitlist"
+        cta: "Start free trial"
     },
     {
         name: "Professional",
@@ -58,7 +58,7 @@ const plans = [
             { text: "Priority email support", included: true }
         ],
         bestFor: ["Growing teams replacing manual support with AI"],
-        cta: "Join the waitlist"
+        cta: "Start free trial"
     },
     {
         name: "Business",
@@ -85,7 +85,7 @@ const plans = [
             { text: "Priority phone & email support", included: true }
         ],
         bestFor: ["High-volume teams with governance requirements"],
-        cta: "Join the waitlist"
+        cta: "Start free trial"
     },
     {
         name: "Enterprise",
@@ -138,7 +138,7 @@ const faqs = [
     },
     {
         question: "How does signup work?",
-        answer: "Join the waitlist now to get early access when we launch. You'll be first in line to select your plan and start using Enorve. No long-term contracts required."
+        answer: "Sign up and start your 14-day free trial — no credit card required. You can switch plans, upgrade, or cancel any time. No long-term contracts."
     },
     {
         question: "How does billing work?",
@@ -163,7 +163,6 @@ const securityFeatures = [
 ]
 
 export function Pricing() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "Pricing — AI Support Plans by Resolution Capacity",
         description: "Plans from 500 to 50,000+ AI-resolved conversations per month. Pay for resolution capacity, not feature access. Start with a free trial."
@@ -283,7 +282,7 @@ export function Pricing() {
                             <Button
                                 variant={plan.popular ? "primary" : "secondary"}
                                 className={`w-full ${plan.popular ? "bg-gradient-to-r from-violet-500 to-purple-600 shadow-[0_0_25px_rgba(31, 168, 111,0.4)] hover:shadow-[0_0_35px_rgba(31, 168, 111,0.5)]" : ""}`}
-                                onClick={openWaitlist}
+                                onClick={goToSignup}
                             >
                                 {plan.cta}
                                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -717,11 +716,11 @@ export function Pricing() {
                             Let AI run your support. Stay in control.
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                            Join the waitlist and get priority access when we launch.
+                            14-day free trial. No credit card required. Cancel any time.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                Start free trial
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">

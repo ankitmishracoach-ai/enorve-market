@@ -9,7 +9,7 @@ import {
 } from "lucide-react"
 import { Button } from "../../components/ui/Button"
 import { usePageTitle } from "../../hooks/usePageTitle"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const channels = [
     {
@@ -103,7 +103,6 @@ const workflowFeatures = [
 ]
 
 export function Inbox() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "Unified Inbox - All Channels in One Place",
         description: "Unified omnichannel inbox for modern support teams. Manage email, live chat, WhatsApp, Instagram, and more from one powerful, organized interface."
@@ -134,8 +133,8 @@ export function Inbox() {
                             Smart signals, keyboard shortcuts, and AI-powered prioritization.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">
@@ -784,11 +783,11 @@ export function Inbox() {
                             Ready to unify your inbox?
                         </h2>
                         <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                            Join the waitlist and bring all your channels together.
+                            Start free trial and bring all your channels together.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <Button variant="primary" size="lg" onClick={openWaitlist}>
-                                    Join the waitlist
+                            <Button variant="primary" size="lg" onClick={goToSignup}>
+                                    Start free trial
                                     <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                             <Link to="/contact-sales">

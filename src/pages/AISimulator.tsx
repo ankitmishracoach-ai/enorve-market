@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Play, RotateCcw, Mail, MessageCircle, Instagram, CheckCircle2, ShieldAlert, ArrowRight } from "lucide-react"
-import { useWaitlist } from "../hooks/useWaitlist"
+import { goToSignup } from "../lib/constants"
 import { usePageTitle } from "../hooks/usePageTitle"
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -222,7 +222,6 @@ export function AISimulator() {
     title: "AI Support Simulator — Same Customer, Two Outcomes",
     description: "Watch a side-by-side comparison of AI support with and without Enorve. See how protocol-governed AI outperforms generic chatbots."
   })
-  const { openWaitlist } = useWaitlist()
   const [isPlaying, setIsPlaying] = useState(false)
   const [hasPlayed, setHasPlayed] = useState(false)
   const [elapsed, setElapsed] = useState(0)
@@ -446,10 +445,10 @@ export function AISimulator() {
           AI that never goes off-script.
         </p>
         <button
-          onClick={openWaitlist}
+          onClick={goToSignup}
           className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-black font-medium text-sm hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.15)]"
         >
-          Get early access
+          Start free trial
           <ArrowRight className="h-4 w-4" />
         </button>
       </div>

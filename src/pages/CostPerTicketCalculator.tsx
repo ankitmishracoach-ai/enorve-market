@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 import { ArrowRight, Share2, Check } from "lucide-react"
-import { useWaitlist } from "../hooks/useWaitlist"
+import { goToSignup } from "../lib/constants"
 import { usePageTitle } from "../hooks/usePageTitle"
 
 /* ── Animated counter ── */
@@ -98,7 +98,6 @@ function PercentileBar({ costPerTicket }: { costPerTicket: number }) {
 
 /* ── Main page ── */
 export function CostPerTicketCalculator() {
-    const { openWaitlist } = useWaitlist()
     usePageTitle({
         title: "Cost Per Support Ticket Calculator | Enorve",
         description: "Calculate your true cost per support ticket in 30 seconds. Benchmark against industry averages and find where to cut costs."
@@ -241,7 +240,7 @@ export function CostPerTicketCalculator() {
 
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                                 <button
-                                    onClick={openWaitlist}
+                                    onClick={goToSignup}
                                     className="h-12 px-8 rounded-full bg-white text-black font-medium text-base hover:bg-gray-200 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2 cursor-pointer"
                                 >
                                     See how Enorve does it

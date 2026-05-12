@@ -21,28 +21,32 @@
   <!-- Security & Privacy -->
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
-  <!-- Google Analytics 4 -->
+  <!-- Google Analytics 4 — CONSENT-GATED.
+       Does not auto-load. The CookieConsent component in React calls
+       window.enorveLoadAnalytics() only after the visitor accepts. -->
   <script>
-    // Only load GA if measurement ID is provided and valid
     window.GA_MEASUREMENT_ID = '%VITE_GA_MEASUREMENT_ID%';
-    // Check if the ID was replaced by Vite and is a valid GA4 ID (starts with 'G-')
-    if (window.GA_MEASUREMENT_ID && window.GA_MEASUREMENT_ID.startsWith('G-')) {
-      // Load gtag.js
-      var script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
-      document.head.appendChild(script);
+    window.enorveAnalyticsLoaded = false;
+    window.enorveLoadAnalytics = function () {
+      if (window.enorveAnalyticsLoaded) return;
+      var id = window.GA_MEASUREMENT_ID;
+      if (!id || typeof id !== 'string' || id.indexOf('G-') !== 0) return;
+      window.enorveAnalyticsLoaded = true;
 
-      // Initialize dataLayer and gtag
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+      document.head.appendChild(s);
+
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', window.GA_MEASUREMENT_ID, {
+      gtag('config', id, {
         'send_page_view': true,
         'anonymize_ip': true
       });
-    }
+    };
   </script>
 
   <!-- Primary Meta Tags -->

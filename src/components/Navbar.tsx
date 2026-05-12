@@ -5,7 +5,7 @@ import { cn } from "../lib/utils"
 import { Menu, X, ChevronDown, Bot, Inbox, Zap, BookOpen, BarChart3, Headphones, ShoppingCart, Building2, Rocket, Workflow, Send } from "lucide-react"
 import { Button } from "./ui/Button"
 import { EnorveLogoFull } from "./ui/Logo"
-import { useWaitlist } from "../hooks/useWaitlist"
+import { goToSignup } from "../lib/constants"
 
 const productLinks = [
     { label: "AI Copilot", href: "/product/ai-copilot", icon: Bot, description: "AI that answers customers for you" },
@@ -38,7 +38,6 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-    const { openWaitlist } = useWaitlist()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -240,12 +239,6 @@ export function Navbar() {
                         {/* Desktop CTAs */}
                         <div className="hidden md:flex items-center gap-3">
                             <Link
-                                to="/design-partners"
-                                className="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-colors px-4 py-2"
-                            >
-                                Design Partners
-                            </Link>
-                            <Link
                                 to="/contact-sales"
                                 className="text-sm font-medium text-gray-400 hover:text-white transition-colors px-4 py-2"
                             >
@@ -257,8 +250,8 @@ export function Navbar() {
                             >
                                 Login
                             </a>
-                            <Button variant="primary" size="sm" onClick={openWaitlist}>
-                                Get early access
+                            <Button variant="primary" size="sm" onClick={goToSignup}>
+                                Start free trial
                             </Button>
                         </div>
 
@@ -330,8 +323,8 @@ export function Navbar() {
                                 {/* Auth Section */}
                                 <div className="pt-4 mt-2 border-t border-white/10 space-y-3">
                                     <a href="https://app.enorve.com/" className="block py-2 px-3 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors text-center">Login</a>
-                                    <Button variant="primary" size="md" className="w-full" onClick={() => { setMobileMenuOpen(false); openWaitlist() }}>
-                                        Get early access
+                                    <Button variant="primary" size="md" className="w-full" onClick={() => { setMobileMenuOpen(false); goToSignup() }}>
+                                        Start free trial
                                     </Button>
                                 </div>
                             </div>

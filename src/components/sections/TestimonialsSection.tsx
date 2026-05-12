@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Sparkles, Users, Zap } from "lucide-react"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 const capabilities = [
     {
@@ -30,7 +30,6 @@ const capabilities = [
 ]
 
 export function TestimonialsSection() {
-    const { openWaitlist } = useWaitlist()
     return (
         <section className="py-32 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
@@ -83,10 +82,10 @@ export function TestimonialsSection() {
                     className="text-center"
                 >
                     <button
-                        onClick={openWaitlist}
+                        onClick={goToSignup}
                         className="inline-flex items-center gap-2 text-violet-400 hover:text-violet-300 font-medium transition-colors cursor-pointer"
                     >
-                        Join the waitlist
+                        Start free trial
                         <ArrowRight className="w-4 h-4" />
                     </button>
                 </motion.div>

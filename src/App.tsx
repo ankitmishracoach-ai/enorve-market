@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { MainLayout } from "./layouts/MainLayout"
 import { V2Layout } from "./layouts/V2Layout"
 import { ScrollToTop } from "./components/ScrollToTop"
-import { WaitlistProvider } from "./hooks/useWaitlist"
+import { CookieConsent } from "./components/CookieConsent"
 import { Home } from "./pages/Home"
 import { V2Home } from "./pages/v2/Home"
 
@@ -28,7 +28,6 @@ import { CostPerTicketCalculator } from "./pages/CostPerTicketCalculator"
 import { Security } from "./pages/Security"
 import { AISimulator } from "./pages/AISimulator"
 import { AITransparency } from "./pages/AITransparency"
-import { DesignPartners } from "./pages/DesignPartners"
 import { DemoVideo } from "./pages/DemoVideo"
 
 // Company Pages
@@ -38,6 +37,8 @@ import { ContactSales } from "./pages/company/Contact"
 import { PrivacyPolicy } from "./pages/legal/PrivacyPolicy"
 import { TermsOfService } from "./pages/legal/TermsOfService"
 import { Subprocessors } from "./pages/legal/Subprocessors"
+import { CookiePolicy } from "./pages/legal/CookiePolicy"
+import { DPA } from "./pages/legal/DPA"
 
 // 404 Page
 import { NotFound } from "./pages/NotFound"
@@ -45,7 +46,6 @@ import { NotFound } from "./pages/NotFound"
 function App() {
   return (
     <BrowserRouter>
-      <WaitlistProvider>
       <ScrollToTop />
       <Routes>
         {/* Full-screen pages — no layout */}
@@ -82,7 +82,6 @@ function App() {
           <Route path="/roi-calculator" element={<Navigate to="/labor-replacement-calculator" replace />} />
           <Route path="/security" element={<Security />} />
           <Route path="/ai-transparency" element={<AITransparency />} />
-          <Route path="/design-partners" element={<DesignPartners />} />
           <Route path="/ai-simulator" element={<AISimulator />} />
 
           {/* Company Routes */}
@@ -92,12 +91,14 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/subprocessors" element={<Subprocessors />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/dpa" element={<DPA />} />
 
           {/* 404 Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
-      </WaitlistProvider>
+      <CookieConsent />
     </BrowserRouter>
   )
 }

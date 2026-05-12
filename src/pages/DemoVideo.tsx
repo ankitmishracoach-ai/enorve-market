@@ -765,7 +765,7 @@ export function DemoVideo() {
                     rel="noopener noreferrer"
                     className="px-10 py-4 bg-emerald-500 hover:bg-emerald-600 rounded-2xl text-white font-semibold text-lg transition-colors shadow-xl shadow-emerald-500/20"
                   >
-                    Get early access →
+                    Start free trial →
                   </a>
                 </motion.div>
               </div>

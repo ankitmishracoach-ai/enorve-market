@@ -1,8 +1,7 @@
 import { ArrowRight } from "lucide-react"
-import { useWaitlist } from "../../hooks/useWaitlist"
+import { goToSignup } from "../../lib/constants"
 
 export function MidPageCTA() {
-    const { openWaitlist } = useWaitlist()
     return (
         <section className="py-16 relative overflow-hidden">
             <div className="max-w-4xl mx-auto px-6">
@@ -19,10 +18,10 @@ export function MidPageCTA() {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                             <button
-                                onClick={openWaitlist}
+                                onClick={goToSignup}
                                 className="bg-white text-black font-medium text-sm h-11 px-6 rounded-full hover:bg-gray-200 transition-all shadow-[0_0_25px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2 cursor-pointer"
                             >
-                                Join the waitlist
+                                Start free trial
                                 <ArrowRight className="w-4 h-4" />
                             </button>
                         </div>

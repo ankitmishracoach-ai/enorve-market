@@ -11,7 +11,6 @@ import { CTASection } from "../components/sections/CTASection"
 import { MidPageCTA } from "../components/sections/MidPageCTA"
 import { Hero } from "../components/Hero"
 import { InboxPreview } from "../components/sections/InboxPreview"
-import { ExitIntentModal } from "../components/ExitIntentModal"
 import { usePageTitle } from "../hooks/usePageTitle"
 import { useStructuredData, createOrganizationSchema, createSoftwareApplicationSchema } from "../hooks/useStructuredData"
 
@@ -41,7 +40,6 @@ export function Home() {
             <ConnectStackSection />
             <EnterpriseReadySection />
             <CTASection />
-            <ExitIntentModal />
         </>
     )
 }
