@@ -97,12 +97,33 @@
       script.src = 'https://uggsfinugqzjfroxzpbo.supabase.co/functions/v1/serve-chat-widget';
       script.async = true;
       document.head.appendChild(script);
-      window.EnorveChat('init', {
+
+      // 2026-05-23 fix: URL-aware role hint. Sales-mapped paths get the
+      // sales role passed explicitly so the server skips URL pattern
+      // matching and the widget renders Spotlight on first paint. Without
+      // this, visitors landing directly on /pricing saw the support
+      // launcher first and the swap only fired on later SPA navigation.
+      // Belt-and-suspenders with the serve-chat-widget re-resolve hook
+      // (which catches all other tenants automatically); this snippet
+      // additionally eliminates the flash entirely on predictable routes.
+      var roleHint = null;
+      try {
+        var path = (window.location && window.location.pathname) || '';
+        if (path.indexOf('/pricing') === 0) {
+          roleHint = 'sales';
+        }
+      } catch (e) {
+        // window.location unavailable (SSR build step etc.) — leave null
+      }
+
+      var initConfig = {
         widgetKey: '4c5690be-74d8-4fea-ae73-9f53f2529733',
         position: 'bottom-right',
         primaryColor: '#1C7C54',
         installSource: 'script'
-      });
+      };
+      if (roleHint) initConfig.role_hint = roleHint;
+      window.EnorveChat('init', initConfig);
     })();
   </script>
 </body>
